@@ -1,0 +1,101 @@
+.timeline {
+    --d-space:          16px;
+    --d-dot:            16px;
+}
+
+.timeline > * {
+    display:            flex;
+    min-height:         80px;
+    align-items:        stretch;
+    flex-wrap:          wrap;
+}
+
+.timeline > * > * {
+    box-sizing:         border-box;
+    display:            flex;
+    max-height:         80px;
+    align-items:        center;
+}
+
+.timeline > * .time,
+.timeline > * .icon {
+    /*flex:               0;*/
+}
+
+.timeline > * .description {
+    min-height:         80px;
+}
+
+.timeline > * .time {
+    min-height:         80px;
+    padding-right:      32px;
+    position:           relative;
+    overflow:           hidden;
+}
+
+.timeline > * > *:not(:last-child) {
+    padding-right:      var(--d-space);
+}
+
+.timeline > * .time::before {
+    content:            '';
+    width:              var(--d-space);
+    height:             var(--d-space);
+    background-color:   var(--c-dark);
+    margin:             0 16px;
+    border-radius:      100%;
+}
+
+.timeline > * .time::after {
+    position:           absolute;
+    content:            '';
+    height:             100%;
+    width:              0px;
+    left:               calc(var(--d-space) + var(--d-dot) / 2);
+    transform:          translateX(-50%);
+    border:             1px dashed var(--c-dark);
+}
+
+.timeline > * .icon {
+    --d-arrow:          20px;
+    position:           relative;
+    background-color:   var(--c-contrast);
+    border-radius:      100%;
+    padding:            0;
+    margin:             8px;
+    margin-right:       var(--d-space);
+    z-index:            0;
+    display:            flex;
+    align-items:        center;
+    justify-content:    center;
+    width:              64px;
+}
+
+.timeline > * .icon img {
+    width:              50px;
+    height:             50px;
+}
+
+.timeline > * .icon::after {
+    content:            '';
+    position:           absolute;
+    left:               -8px;
+    top:                50%;
+    transform:          translateY(-50%);
+    z-index:            -1;
+    /*
+    border-left:        var(--d-arrow) solid var(--c-contrast);
+    */
+    border-right:       var(--d-arrow) solid var(--c-contrast);
+    border-top:         var(--d-arrow) solid transparent;
+    border-bottom:      var(--d-arrow) solid transparent;
+}
+
+.timeline > * .icon {
+    transition:         opacity var(--t-normal);
+    opacity:            60%;
+}
+
+.timeline > *:hover .icon {
+    opacity:            100%;
+}

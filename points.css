@@ -1,0 +1,69 @@
+.points {
+    display:            flex;
+    flex-direction:     column;
+    align-items:        center;
+    /*
+    padding-top:        32px;
+    padding-bottom:     32px;
+    */
+}
+
+.points > * {
+    position:           relative;
+    text-align:         center;
+    max-width:          400px;
+}
+
+.points.side {
+    align-items:        stretch;
+}
+
+.points.wide > * {
+    max-width:          1000px;
+    text-align:         justify;
+}
+
+.points > *:not(:last-child) {
+    margin-bottom:      32px !important;
+    padding-bottom:     32px;
+}
+
+.points.side > *:not(:last-child) {
+    padding-bottom:     0;
+}
+
+.points > *:not(:last-child)::after,
+.points.side > *::after {
+    content:            '';
+    position:           absolute;
+    background-color:   var(--c-contrast);
+}
+
+.points > *:not(:last-child)::after {
+    left:               50%;
+    bottom:             0;
+    transform:          translate(-50%, 50%);
+    max-width:          100%;
+    width:              16px;
+    height:             16px;
+    border-radius:      100%;
+}
+
+.points.line > *:not(:last-child)::after {
+    width:              64px;
+    height:             2px;
+    border-radius:      0%;
+}
+
+.points.side > *::after {
+    width:              2px;
+    height:             100%;
+    left:               0;
+    top:                0;
+    border-radius:      0%;
+    transform:          none;
+}
+
+.points.side > * {
+    padding-left:       32px;
+}

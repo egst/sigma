@@ -1,0 +1,21 @@
+.box {
+    border:             2px solid var(--c-white);
+    transition:         background-color var(--t-normal),
+                        color            var(--t-normal);
+}
+
+.box.black {
+    border-color:       var(--c-black);
+}
+
+.box:hover,
+.dropdown:hover > .nav-item.box {
+    background-color:   var(--c-white);
+    color:              var(--c-black);
+}
+
+.box.black:hover,
+.dropdown:hover > .nav-item.box.black {
+    background-color:   var(--c-black);
+    color:              var(--c-white);
+}

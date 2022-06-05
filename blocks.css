@@ -1,0 +1,61 @@
+.blocks {
+    display:            grid;
+    gap:                32px;
+    grid-template-columns:
+                        repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.blocks > * {
+    padding:            32px;
+    position:           relative;
+    z-index:            0;
+    background-color:   var(--c-lighter);
+    color:              var(--c-black);
+}
+
+.blocks > * > img {
+    opacity:            100%;
+    transition:         opacity var(--t-normal);
+}
+
+.blocks > *:hover > img {
+    opacity:            10%;
+}
+
+.blocks > * > *:not(img) {
+    opacity:            0;
+    transition:         opacity var(--t-normal);
+}
+
+.blocks > *:hover > *:not(img) {
+    opacity:            100%;
+}
+
+.blocks > *,
+.blocks > * p {
+    text-align:         center;
+}
+
+.blocks > * .detail {
+    font-size:          16px;
+}
+
+.blocks > * .title {
+    font-weight:        bold;
+}
+
+.blocks > * img {
+    z-index:            -1;
+    position:           absolute;
+    top:                50%;
+    left:               50%;
+    transform:          translate(-50%, -50%);
+    width:              100%;
+    height:             100%;
+    width:              50%;
+    object-fit:         contain;
+}
+
+.blocks > * > *:not(:last-child) {
+    margin-bottom:      24px;
+}

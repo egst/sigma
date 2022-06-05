@@ -1,0 +1,43 @@
+.icons {
+    display:            grid;
+    gap:                32px;
+    grid-template-columns:
+                        repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.icons > * {
+    padding:            32px;
+}
+
+.icons > *,
+.icons > * p {
+    text-align:         center;
+}
+
+.icons > * .detail {
+    font-size:          16px;
+}
+
+.icons > * .title {
+    font-weight:        bold;
+}
+
+.icons > * img {
+    width:              50%;
+    object-fit:         contain;
+}
+
+.icons > * img,
+.icons > * .detail {
+    transition:         opacity var(--t-normal);
+    opacity:            75%;
+}
+
+.icons > *:hover img,
+.icons > *:hover .detail {
+    opacity:            100%;
+}
+
+.icons > * > *:not(:last-child) {
+    margin-bottom:      24px;
+}
